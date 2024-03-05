@@ -53,7 +53,7 @@ class Program
         int maxIterations = 100;
         double[] lowerBound = { -5, -5, -5 };
         double[] upperBound = { 5, 5, 5 };
-        BeeAlgorithm beeAlgorithm = new BeeAlgorithm(objectiveFunction, dimension, colonySize, maxIterations, lowerBound, upperBound);
+        BeeAlgorithm.BeeAlgorithm beeAlgorithm = new BeeAlgorithm.BeeAlgorithm(objectiveFunction, dimension, colonySize, maxIterations, lowerBound, upperBound);
 
         // 3. Solve the Optimization Problem
         double[] bestSolution = beeAlgorithm.Solve();
