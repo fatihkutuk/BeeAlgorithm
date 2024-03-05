@@ -29,7 +29,7 @@ Solve the Optimization Problem: Solve the optimization problem using the BeeAlgo
 <pre>
 <code>
 using System;
-using BeeAlgorithmLibrary;
+using BeeAlgorithm;
 
 class Program
 {
