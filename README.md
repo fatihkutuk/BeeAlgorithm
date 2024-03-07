@@ -11,10 +11,10 @@
 <p>To use this library, you can add it to your project as a <a href="https://www.nuget.org/packages/BeeAlgorithmLibrary">NuGet Package</a>.</p>
 
 <pre>
-<code>Install-Package BeeAlgorithmLibrary -Version 1.0.1</code></pre>
+<code>dotnet add package BeeAlgorithmLibrary --version 3.0.1</code></pre>
 or
 <pre>
-<code>dotnet add package BeeAlgorithm --version 1.0.1</code>
+<code>NuGet\Install-Package BeeAlgorithmLibrary -Version 3.0.1</code>
 </pre>
 
 <h2>How to Use</h2>
@@ -28,42 +28,49 @@ Solve the Optimization Problem: Solve the optimization problem using the BeeAlgo
 
 <pre>
 <code>
-using System;
-using BeeAlgorithm;
+using BeeAlgorithmLibrary.Extentions.Models.Response;
 
 class Program
 {
     static void Main(string[] args)
     {
-        // 1. Define the Objective Function
-        Func&lt;double[], double&gt; objectiveFunction = (x) =>
+        Func<double[], double> TestFunction = (sol) =>
         {
-            // Sample objective function: Sphere function
-            double sum = 0;
-            foreach (var value in x)
+            int j;
+            double top = 0;
+        
+            for (j = 0; j < sol.Length; j++)
             {
-                sum += value * value;
+                top = top + (Math.Pow(sol[j], (double)2) - 10 * Math.Cos(2 * Math.PI * sol[j]) + 10);
             }
-            return sum;
+            return top;
         };
-
-        // 2. Create a BeeAlgorithm Object
-        int dimension = 3;
-        int colonySize = 20;
-        int maxIterations = 100;
-        double[] lowerBound = { -5, -5, -5 };
-        double[] upperBound = { 5, 5, 5 };
-        BeeAlgorithm.BeeAlgorithm beeAlgorithm = new BeeAlgorithm.BeeAlgorithm(objectiveFunction, dimension, colonySize, maxIterations, lowerBound, upperBound);
-
-        // 3. Solve the Optimization Problem
-        double[] bestSolution = beeAlgorithm.Solve();
-
-        // Print the best solution
-        Console.WriteLine("Best solution:");
-        foreach (var value in bestSolution)
-        {
-            Console.WriteLine(value);
-        }
+        
+        int NP = 20; // The number of colony size (employed bees+onlooker bees)
+        
+        int maxCycle = 2500;// The number of cycles for foraging {a stopping criteria}
+        
+        int limit = 100; // A food source which could not be improved through "limit" trials is abandoned by its employed bee
+        
+        int D = 100; // The number of parameters of the problem to be optimized
+        
+        double lb = -5.12; // lower bound of the parameters.
+        
+        double ub = 5.12; // upper bound of the parameters. lb and ub can be defined as arrays for the problems of which parameters have different bounds
+        
+        int runtime = 30; // Algorithm can be run many times in order to see its robustness
+        
+        //Func<double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; if u want test with global functions u can use extensions like this block
+        BeeAlgorithmLibrary.Extentions.Types.OptimizationType optimizationType = BeeAlgorithmLibrary.Extentions.Types.OptimizationType.Minimize; // if u want minimize the function use Minimize, if u want maximize function use Maximize
+                       
+        Func<double[], double> customTestFunction = TestFunction;
+        
+        BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime,customTestFunction);
+        //BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime); if u dont give custom test function it will run with default Sphere function
+        
+        BeeAlgorithmResult solve = beeAlgorithm.Solve();
+        
+        //BeeAlgorithmResult solve = await beeAlgorithm.SolveAsync(); for async 
     }
 }
 </code>
