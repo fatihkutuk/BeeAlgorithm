@@ -1,6 +1,6 @@
 /* Fatih Kütük */
 
-using BeeAlgorithm;
+using BeeAlgorithmLibrary.Extentions.Models.Response;
 
 namespace Samples
 {
@@ -17,48 +17,43 @@ namespace Samples
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                Func<double[], double> objectiveFunction = (x) =>
+                Func<double[], double> TestFunction = (sol) =>
                 {
-                    // For demonstration purposes, let's use the Sphere function
-                    return x[0] * x[0];
+                    int j;
+                    double top = 0;
+
+                    for (j = 0; j < sol.Length; j++)
+                    {
+                        top = top + (Math.Pow(sol[j], (double)2) - 10 * Math.Cos(2 * Math.PI * sol[j]) + 10);
+                    }
+                    return top;
                 };
 
-                // Dimension of the optimization problem
-                int dimension = 3;
+                int NP = 20; // The number of colony size (employed bees+onlooker bees)
 
-                // Size of the bee colony
-                int colonySize = 20;
+                int maxCycle = 2500;// The number of cycles for foraging {a stopping criteria}
 
-                // Maximum number of iterations
-                int maxIterations = 100;
+                int limit = 100; // A food source which could not be improved through "limit" trials is abandoned by its employed bee
 
-                // Lower bounds of the search space
-                double[] lowerBound = { -10, -10, -10 };
+                int D = 100; // The number of parameters of the problem to be optimized
 
-                // Upper bounds of the search space
-                double[] upperBound = { 10, 10, 10 };
+                double lb = -5.12; // lower bound of the parameters.
 
-                // Optional: Define a custom random function
-                Func<double> customRandomFunction = () =>
-                {
-                    // Example custom random function
-                    return (new Random().NextDouble() * 2 - 1);
-                };
+                double ub = 5.12; // upper bound of the parameters. lb and ub can be defined as arrays for the problems of which parameters have different bounds
 
-                // Create an instance of the BeeAlgorithm class
-                BeeAlgorithm.BeeAlgorithm beeAlgorithm = new BeeAlgorithm.BeeAlgorithm(objectiveFunction, dimension, colonySize, maxIterations, lowerBound, upperBound, customRandomFunction);
-                // use default random function -> BeeAlgorithm.BeeAlgorithm beeAlgorithm = new BeeAlgorithm.BeeAlgorithm(objectiveFunction, dimension, colonySize, maxIterations, lowerBound, upperBound);
+                int runtime = 30; // Algorithm can be run many times in order to see its robustness
 
-                // Solve the optimization problem
-                double[] bestSolution = beeAlgorithm.Solve();
+                //Func<double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; if u want test with global functions u can use extensions like this block
+                BeeAlgorithmLibrary.Extentions.Types.OptimizationType optimizationType = BeeAlgorithmLibrary.Extentions.Types.OptimizationType.Minimize; // if u want minimize the function use Minimize, if u want maximize function use Maximize
+               
+                Func<double[], double> customTestFunction = TestFunction;
+                
+                BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime,customTestFunction);
+                //BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime); if u dont give custom test function it will run with default Sphere function
+                
+                BeeAlgorithmResult solve = beeAlgorithm.Solve();
 
-                // Output the best solution found
-                Console.WriteLine("Best solution found:");
-                foreach (var value in bestSolution)
-                {
-                    Console.WriteLine(value);
-                }
-                await Task.Delay(1000, stoppingToken);
+                //BeeAlgorithmResult solve = await beeAlgorithm.SolveAsync(); for async 
             }
         }
     }

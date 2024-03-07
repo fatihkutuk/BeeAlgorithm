@@ -8,10 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BeeAlgorithmLibrary" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BeeAlgorithm\BeeAlgorithm.csproj" />
   </ItemGroup>
 </Project>
