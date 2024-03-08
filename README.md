@@ -1,11 +1,15 @@
 
 
-<h1>BeeAlgorithmLibrary</h1>
+<h1>BeeAlgorithmLibrary -- Artificial Bee Colony (ABC)</h1>
 
-<p>BeeAlgorithmLibrary is a C# library for solving optimization problems using the bee algorithm introduced by Derviş Karaboğa to the literature.</p>
+<p>BeeAlgorithmLibrary is a C# library for solving optimization problems using the bee algorithm introduced by Derviş Karaboğa to the literature.
+
+<h3>IMPORTANT :</h3> This library does not use the standard bee algorithm.
+It provides the Artificial Bee Colony (ABC) Algorithm </p>
 
 <h2>More</h2>
 <p>You can learn more about how the algorithm works here See the <a href="https://abc.erciyes.edu.tr/">Artificial Bee Colony (ABC) Algorithm Homepage</a>.</p>
+<p>You can learn more about how the algorithm works on wikipedia <a href="https://en.wikipedia.org/wiki/Artificial_bee_colony_algorithm">Artificial Bee Colony (ABC) Algorithm Wikipedia</a>.</p>
 <h2>Installation</h2>
 
 <p>To use this library, you can add it to your project as a <a href="https://www.nuget.org/packages/BeeAlgorithmLibrary">NuGet Package</a>.</p>
@@ -72,10 +76,10 @@ namespace Samples
 
                 int runtime = 30; // Algorithm can be run many times in order to see its robustness
 
-                //Func<double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; if u want test with global functions u can use extensions like this block
+                //Func&lt;double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; if u want test with global functions u can use extensions like this block
                 BeeAlgorithmLibrary.Extentions.Types.OptimizationType optimizationType = BeeAlgorithmLibrary.Extentions.Types.OptimizationType.Minimize; // if u want minimize the function use Minimize, if u want maximize function use Maximize
                
-                Func<double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; // if u want u can create your own test function 
+                Func&lt;double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; // if u want u can create your own test function 
                 
                 BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime,customTestFunction);
                 //BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime); if u dont give custom test function it will run with default Sphere function
