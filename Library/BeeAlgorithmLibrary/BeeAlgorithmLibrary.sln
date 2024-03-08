@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeAlgorithmLibrary", "BeeAlgorithmLibrary\BeeAlgorithmLibrary.csproj", "{E045D923-4AB6-4119-A953-7E089EB5DCBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E045D923-4AB6-4119-A953-7E089EB5DCBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E045D923-4AB6-4119-A953-7E089EB5DCBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E045D923-4AB6-4119-A953-7E089EB5DCBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E045D923-4AB6-4119-A953-7E089EB5DCBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D71404DF-E53A-4A27-AA0B-9BA57DB378CC}
+	EndGlobalSection
+EndGlobal

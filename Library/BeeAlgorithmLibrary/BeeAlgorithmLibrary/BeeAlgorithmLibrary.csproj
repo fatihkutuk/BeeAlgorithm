@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>BeeAlgorithmLibrary(ABC)</Title>
+    <RepositoryUrl>https://github.com/fatihkutuk/BeeAlgorithmLibrary.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Bee Colony Algorithm, Bee Algortihm, Optimizitaion Algorithms</PackageTags>
+    <PackageReleaseNotes>Samples Repostory added</PackageReleaseNotes>
+    <AssemblyVersion>3.0.2</AssemblyVersion>
+    <FileVersion>3.0.2</FileVersion>
+    <Version>3.0.2</Version>
+    <Description>BeeAlgorithmLibrary is a C# library for solving optimization problems using the Artificial Bee Colony (ABC) Algorithm introduced by Derviş Karaboğa to the literature.
+
+IMPORTANT :
+This library does not use the standard bee algorithm. It provides the Artificial Bee Colony (ABC) Algorithm</Description>
+    <PackageIcon>17895966-bee-icon.jpg</PackageIcon>
+    <PackageProjectUrl>https://abc.erciyes.edu.tr/</PackageProjectUrl>
+    <Product>$(AssemblyName) </Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+    <None Include="..\..\..\..\OneDrive\Masaüstü\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+
+    <None Include="..\17895966-bee-icon.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
