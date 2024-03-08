@@ -28,7 +28,6 @@ Solve the Optimization Problem: Solve the optimization problem using the BeeAlgo
 
 <pre>
 <code>
-```csharp
 /* Fatih Kütük */
 
 using BeeAlgorithmLibrary.Extentions.Models.Response;
@@ -88,7 +87,6 @@ namespace Samples
         }
     }
 }
-```
 </code>
 </pre>
 
