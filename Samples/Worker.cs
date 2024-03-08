@@ -1,6 +1,7 @@
 /* Fatih Kütük */
 
 using BeeAlgorithmLibrary.Extentions.Models.Response;
+using System.Reflection;
 
 namespace Samples
 {
@@ -52,8 +53,22 @@ namespace Samples
                 //BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime); if u dont give custom test function it will run with default Sphere function
                 
                 BeeAlgorithmResult solve = beeAlgorithm.Solve();
-
                 //BeeAlgorithmResult solve = await beeAlgorithm.SolveAsync(); for async 
+
+
+                // example write to optimization datas 
+                foreach (var result in solve.Results.Select((value, i) => new { i, value }))
+                {
+                    Console.WriteLine($"Runtim({result.i+1})  Global Min  = {result.value.GlobalMin}");
+                    foreach (var param in result.value.GlobalParams.Select((value, i) => new { i, value }))
+                    {
+                        Console.WriteLine($"  Runtim({result.i+1}) Param({param.i+1})  = {param.value}");
+
+                    }
+
+                }
+                Console.WriteLine($"Mean of 30 Runtime = {solve.Mean}");
+
             }
         }
     }
