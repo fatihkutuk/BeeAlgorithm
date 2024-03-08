@@ -48,12 +48,12 @@ namespace Samples
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                Func<double[], double> TestFunction = (sol) =>
+                Func&lt;double[], double&gt; TestFunction = (sol) =&gt;
                 {
                     int j;
                     double top = 0;
     
-                    for (j = 0; j < sol.Length; j++)
+                    for (j = 0; j &lt; sol.Length; j++)
                     {
                         top = top + (Math.Pow(sol[j], (double)2) - 10 * Math.Cos(2 * Math.PI * sol[j]) + 10);
                     }
