@@ -47,17 +47,17 @@ namespace Samples
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                 Func<double[], double> TestFunction = (sol) =>
-                {
-                    int j;
-                    double top = 0;
-
-                    for (j = 0; j < sol.Length; j++)
-                    {
-                        top = top + (Math.Pow(sol[j], (double)2) - 10 * Math.Cos(2 * Math.PI * sol[j]) + 10);
-                    }
-                    return top;
-                };
+                //Func<double[], double> TestFunction = (sol) =>
+                //{
+                //    int j;
+                //    double top = 0;
+    
+                //    for (j = 0; j < sol.Length; j++)
+                //    {
+                //        top = top + ( Math.Cos(2 * Math.PI * sol[j]));
+                //    }
+                //    return top;
+                //};
 
                 int NP = 20; // The number of colony size (employed bees+onlooker bees)
 
