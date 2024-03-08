@@ -34,9 +34,7 @@ Solve the Optimization Problem: Solve the optimization problem using the BeeAlgo
 ```csharp
 /* Fatih Kütük */
 
-
 using BeeAlgorithmLibrary.Extentions.Models.Response;
-using System.Reflection;
 
 namespace Samples
 {
