@@ -1,7 +1,6 @@
 /* Fatih Kütük */
 
 using BeeAlgorithmLibrary.Extentions.Models.Response;
-using System.Reflection;
 
 namespace Samples
 {
