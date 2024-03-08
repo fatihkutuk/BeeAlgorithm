@@ -31,7 +31,7 @@ Create a BeeAlgorithm Object: Define the optimization problem using the BeeAlgor
 Solve the Optimization Problem: Solve the optimization problem using the BeeAlgorithm object. You can obtain the best solution by calling the Solve() method.
 
 
-```csarp
+```csharp
 /* Fatih Kütük */
 
 
