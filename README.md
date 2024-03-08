@@ -30,11 +30,13 @@ Create a BeeAlgorithm Object: Define the optimization problem using the BeeAlgor
 
 Solve the Optimization Problem: Solve the optimization problem using the BeeAlgorithm object. You can obtain the best solution by calling the Solve() method.
 
-<pre>
-<code>
+
+```csarp
 /* Fatih Kütük */
 
+
 using BeeAlgorithmLibrary.Extentions.Models.Response;
+using System.Reflection;
 
 namespace Samples
 {
@@ -51,17 +53,18 @@ namespace Samples
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                Func&lt;double[], double&gt; TestFunction = (sol) =&gt;
+                Func<double[], double> TestFunction = (sol) =>
                 {
                     int j;
                     double top = 0;
-    
-                    for (j = 0; j &lt; sol.Length; j++)
+
+                    for (j = 0; j < sol.Length; j++)
                     {
                         top = top + (Math.Pow(sol[j], (double)2) - 10 * Math.Cos(2 * Math.PI * sol[j]) + 10);
                     }
                     return top;
                 };
+
                 int NP = 20; // The number of colony size (employed bees+onlooker bees)
 
                 int maxCycle = 2500;// The number of cycles for foraging {a stopping criteria}
@@ -76,18 +79,18 @@ namespace Samples
 
                 int runtime = 30; // Algorithm can be run many times in order to see its robustness
 
-                //Func&lt;double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; if u want test with global functions u can use extensions like this block
+                //Func<double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; if u want test with global functions u can use extensions like this block
                 BeeAlgorithmLibrary.Extentions.Types.OptimizationType optimizationType = BeeAlgorithmLibrary.Extentions.Types.OptimizationType.Minimize; // if u want minimize the function use Minimize, if u want maximize function use Maximize
                
-                Func&lt;double[], double> customTestFunction = BeeAlgorithmLibrary.Extentions.TestFunctions.Rastrigin; // if u want u can create your own test function 
+                Func<double[], double> customTestFunction = TestFunction;
                 
                 BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime,customTestFunction);
                 //BeeAlgorithmLibrary.BeeAlgorithm beeAlgorithm = new BeeAlgorithmLibrary.BeeAlgorithm(optimizationType, NP, maxCycle, limit, D, lb, ub, runtime); if u dont give custom test function it will run with default Sphere function
                 
                 BeeAlgorithmResult solve = beeAlgorithm.Solve();
-
                 //BeeAlgorithmResult solve = await beeAlgorithm.SolveAsync(); for async 
-                            
+
+
                 // example write to optimization datas 
                 foreach (var result in solve.Results.Select((value, i) => new { i, value }))
                 {
@@ -100,12 +103,14 @@ namespace Samples
 
                 }
                 Console.WriteLine($"Mean of 30 Runtime = {solve.Mean}");
-            }       
+
+            }
         }
     }
 }
-</code>
-</pre>
+
+```
+
 
 <h2>Contribution</h2>
 
