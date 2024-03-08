@@ -1,6 +1,6 @@
 
 
-<h1>BeeAlgorithmLibrary -- Artificial Bee Colony (ABC)</h1>
+<h1>BeeAlgorithmLibrary -- Artificial Bee Colony (ABC) Algorithm </h1>
 
 <p>BeeAlgorithmLibrary is a C# library for solving optimization problems using the  Artificial Bee Colony (ABC) Algorithm introduced by Derviş Karaboğa to the literature.
 
