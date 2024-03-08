@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples", "Samples\Samples.csproj", "{6B7D208D-9CFA-4727-A147-ED1179F555C0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeAlgorithmLibrary", "..\BeeAlgorithmLibrary\BeeAlgorithmLibrary\BeeAlgorithmLibrary.csproj", "{4E489B1A-06FA-499F-981F-1BAB894A1C8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6B7D208D-9CFA-4727-A147-ED1179F555C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B7D208D-9CFA-4727-A147-ED1179F555C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B7D208D-9CFA-4727-A147-ED1179F555C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E489B1A-06FA-499F-981F-1BAB894A1C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E489B1A-06FA-499F-981F-1BAB894A1C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E489B1A-06FA-499F-981F-1BAB894A1C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E489B1A-06FA-499F-981F-1BAB894A1C8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
