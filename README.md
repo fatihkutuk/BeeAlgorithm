@@ -15,10 +15,10 @@ It provides the Artificial Bee Colony (ABC) Algorithm </p>
 <p>To use this library, you can add it to your project as a <a href="https://www.nuget.org/packages/BeeAlgorithmLibrary">NuGet Package</a>.</p>
 
 <pre>
-<code>dotnet add package BeeAlgorithmLibrary --version 3.0.1</code></pre>
+<code>dotnet add package BeeAlgorithmLibrary --version 3.0.2</code></pre>
 or
 <pre>
-<code>NuGet\Install-Package BeeAlgorithmLibrary -Version 3.0.1</code>
+<code>NuGet\Install-Package BeeAlgorithmLibrary -Version 3.0.2</code>
 </pre>
 
 <h2>How to Use</h2>
